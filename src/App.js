@@ -32,14 +32,16 @@ class App extends React.Component{
 
   renderBreweries(){
     return this.state.breweries.map((brewery, index) =>{
-      const{ id, name, brewery_type, city, state} = brewery;
+      const{ id, name, brewery_type, street, city, state, website_url} = brewery;
 
       return(
         <tr key={id}>
           <td>{name}</td>
           <td>{brewery_type}</td>
+          <td>{street}</td>
           <td>{city}</td>
           <td>{state}</td>
+          <td>{website_url}</td>
         </tr>
       )
     })
