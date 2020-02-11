@@ -20,8 +20,6 @@ class App extends React.Component{
           isLoaded: true,
           breweries: result
         });
-
-        console.log(this.state.breweries);
       },
       (error) => {
         this.setState({
@@ -32,10 +30,10 @@ class App extends React.Component{
     )
   }
 
-  renderTableData(){
+  renderBreweries(){
     return this.state.breweries.map((brewery, index) =>{
       const{ id, name, brewery_type, city, state} = brewery;
-      
+
       return(
         <tr key={id}>
           <td>{name}</td>
@@ -55,7 +53,7 @@ class App extends React.Component{
       <h1 id='title'>Breweries</h1>
         <table id='breweries'>
           <tbody>
-            {this.renderTableData()}
+            {this.renderBreweries()}
           </tbody>
         </table>
     </div>
