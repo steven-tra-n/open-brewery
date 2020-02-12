@@ -11,20 +11,15 @@ import {
 
 class Breweries extends React.Component{
   componentDidMount() {
-    this.getBreweries();
+    this.listBreweries();
   };
 
-  getBreweries(){
-    this.setState({
-      isLoaded: false
-    });
-
+  listBreweries(){
     fetch("https://api.openbrewerydb.org/breweries")
     .then(res => res.json())
     .then(
       (result) => {
         this.setState({
-          isLoaded: true,
           breweries: result
         });
       },
@@ -37,7 +32,7 @@ class Breweries extends React.Component{
     );
   };
 
-  renderBreweries(){
+  renderBreweriesList(){
     return this.state.breweries.map((brewery) =>{
       const{ id, name, brewery_type, street, city, state, website_url} = brewery;
 
@@ -55,14 +50,14 @@ class Breweries extends React.Component{
   };
 
   render(){
-    if(this.state == null || !this.state.isLoaded) return null;
+    if(this.state == null || this.state.breweries == null) return null;
 
     return(
       <div>
       <h1 id='title'>Breweries</h1>
       <table id='breweries'>
         <tbody>
-          {this.renderBreweries()}
+          {this.renderBreweriesList()}
           </tbody>
           </table>
     </div>
@@ -70,16 +65,41 @@ class Breweries extends React.Component{
   };
 };
 
-function Brewery (){
-  let {id} = useParams();
+class Brewery extends React.Component{
+  getBrewery(){
+    this.setState({
+      id: useParams()
+    });
 
-  return(
-  <div>{id}</div>)
+    fetch(`https://api.openbrewerydb.org/breweries/${this.state.id}`)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          brewery: result
+        });
+
+        console.log(this.state.brewery);
+      },
+      (error) => {
+        this.setState({
+          error
+        });
+      }
+    );
+  };
+
+  render(){
+    if(this.state == null || this.state.brewery == null) return null;
+
+    return(
+      <div>{this.state.id}</div>)
+  };
 };
 
 function Home (){
   return(
-    <div>Welcome home, daughter.</div>
+    <div>Welcome home, DAUGHTER.</div>
   );
 };
 
