@@ -9,34 +9,34 @@ import {
   useParams
 } from "react-router-dom";
 
-class Breweries extends React.Component{
+class Breweries extends React.Component {
   componentDidMount() {
     this.listBreweries();
   };
 
-  listBreweries(){
+  listBreweries() {
     fetch("https://api.openbrewerydb.org/breweries")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          breweries: result
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    );
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            breweries: result
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
   };
 
-  renderBreweriesList(){
-    return this.state.breweries.map((brewery) =>{
-      const{ id, name, brewery_type, street, city, state, website_url} = brewery;
+  renderBreweriesList() {
+    return this.state.breweries.map((brewery) => {
+      const {id, name, brewery_type, street, city, state, website_url} = brewery;
 
-      return(
+      return (
         <tr key={id}>
           <Link to={`/breweries/${id}`}><td>{name}</td></Link>
           <td>{brewery_type}</td>
@@ -49,74 +49,80 @@ class Breweries extends React.Component{
     });
   };
 
-  render(){
-    if(this.state == null || this.state.breweries == null) return null;
+  render() {
+    if (this.state == null || this.state.breweries == null) return null;
 
-    return(
+    return (
       <div>
-      <h1 id='title'>Breweries</h1>
-      <table id='breweries'>
-        <tbody>
-          {this.renderBreweriesList()}
+        <h1 id='title'>Breweries</h1>
+        <table id='breweries'>
+          <tbody>
+            {this.renderBreweriesList()}
           </tbody>
-          </table>
-    </div>
+        </table>
+      </div>
     );
   };
 };
 
-class Brewery extends React.Component{
-  getBrewery(){
+class Brewery extends React.Component {
+  componentDidMount() {
+    this.getBrewery();
+  };
+
+  getBrewery() {
     this.setState({
-      id: useParams()
+      id: this.props.match.params.id
+    }, () => {
+      fetch(`https://api.openbrewerydb.org/breweries/${this.props.match.params.id}`)
+        .then(res => res.json())
+        .then((result) => {
+          this.setState({ brewery: result });
+        }, (error) => {
+          this.setState({ error });
+        }
+        );
     });
-
-    fetch(`https://api.openbrewerydb.org/breweries/${this.state.id}`)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          brewery: result
-        });
-
-        console.log(this.state.brewery);
-      },
-      (error) => {
-        this.setState({
-          error
-        });
-      }
-    );
   };
 
-  render(){
-    if(this.state == null || this.state.brewery == null) return null;
+  render() {
+    if (this.state == null || this.state.brewery == null) return null;
+    const {id, brewery} = this.state;
 
-    return(
-      <div>{this.state.id}</div>)
+    return (
+      <div>
+        <p>{id}</p>
+        <p>{brewery.name}</p>
+        <p>{brewery.street}</p>
+        <p>{brewery.city}</p>
+        <p>{brewery.state}</p>
+        <p>{brewery.phone}</p>
+      </div>)
   };
 };
 
-function Home (){
-  return(
-    <div>Welcome home, DAUGHTER.</div>
+function Home() {
+  return (
+    <div>
+      Welcome home, DAUGHTER.
+      <br />
+      <Link to='/breweries'><button>Don't you DARE call me daugther!</button></Link>
+    </div>
   );
 };
 
-function App(){
-    return (
+function App() {
+  return (
     <Router>
       <Route path="/" exact>
         <Home />
       </Route>
-      <Route path="/breweries" exact>
-        <Breweries />
+      <Route path="/breweries" exact component={Breweries}>
       </Route>
-      <Route path="/breweries/:id">
-        <Brewery />
+      <Route path="/breweries/:id" component={Brewery}>
       </Route>
     </Router>
-    );
+  );
 };
 
 // function App() {
