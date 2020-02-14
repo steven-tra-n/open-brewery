@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useParams
+  Link
 } from "react-router-dom";
 
 class Breweries extends React.Component {
@@ -114,13 +113,11 @@ function Home() {
 function App() {
   return (
     <Router>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/breweries" exact component={Breweries}>
-      </Route>
-      <Route path="/breweries/:id" component={Brewery}>
-      </Route>
+      <Switch>
+        <Route path="/breweries/:id" component={Brewery} />
+        <Route path="/breweries" component={Breweries} />
+        <Route path="/" component={Home} />
+      </Switch>
     </Router>
   );
 };
