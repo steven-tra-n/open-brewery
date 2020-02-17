@@ -7,7 +7,7 @@ class Breweries extends React.Component {
     };
   
     listBreweries() {
-      fetch("https://api.openbrewerydb.org/breweries")
+      fetch("https://api.openbrewerydb.org/breweries?by_state=pennsylvania")
         .then(res => res.json())
         .then(
           (result) => {
