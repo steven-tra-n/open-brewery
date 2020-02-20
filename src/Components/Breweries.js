@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import RenderBreweries from './RenderBreweries';
 
 class Breweries extends React.Component {
     componentDidMount() {
@@ -7,7 +7,7 @@ class Breweries extends React.Component {
     };
   
     listBreweries() {
-      fetch("https://api.openbrewerydb.org/breweries?by_state=pennsylvania")
+      fetch("https://api.openbrewerydb.org/breweries?per_page=50?by_state=pennsylvania")
         .then(res => res.json())
         .then(
           (result) => {
@@ -24,23 +24,6 @@ class Breweries extends React.Component {
         );
     };
   
-    renderBreweriesList() {
-      return this.state.breweries.map((brewery) => {
-        const {id, name, brewery_type, street, city, state, website_url} = brewery;
-  
-        return (
-          <tr key={id}>
-            <Link to={`/breweries/${id}`}><td>{name}</td></Link>
-            <td>{brewery_type}</td>
-            <td>{street}</td>
-            <td>{city}</td>
-            <td>{state}</td>
-            <td><a href={website_url}>{website_url}</a></td>
-          </tr>
-        );
-      });
-    };
-  
     render() {
       if (this.state == null || this.state.breweries == null) return null;
   
@@ -49,7 +32,7 @@ class Breweries extends React.Component {
           <h1 id='title'>Breweries</h1>
           <table id='breweries'>
             <tbody>
-              {this.renderBreweriesList()}
+              <RenderBreweries breweries={this.state.breweries} />
             </tbody>
           </table>
         </div>
