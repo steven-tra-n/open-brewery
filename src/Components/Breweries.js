@@ -23,6 +23,29 @@ class Breweries extends React.Component {
           }
         );
     };
+
+    SearchBreweries() {
+      // this.setState({
+      //   value: event.target.value
+      // });
+
+      // if(event.key === 'Enter') {
+      //   fetch(`https://api.openbrewerydb.org/breweries/search?query=${this.state.value}`)
+      //   .then(res => res.json())
+      //   .then((result) => {
+      //     // this.setState({ 
+      //     //   breweries: result
+      //     // });
+      //     this.props.breweries = result;
+      //   }, (error) => {
+      //     this.setState({ error });
+      //   });
+      // };
+
+      return (
+        <input placeholder='Search Breweries' onKeyDown={(event) => this.handleChange(event)} />
+      );
+    };
   
     render() {
       if (this.state == null || this.state.breweries == null) return null;
@@ -30,7 +53,7 @@ class Breweries extends React.Component {
       return (
         <div>
           <h1 id='title'>Breweries</h1>
-          <input placeholder='Search Breweries' />
+          <this.SearchBreweries breweries={this.state.breweries} />
           <table id='breweries'>
             <tbody>
               <RenderBreweries breweries={this.state.breweries} />
@@ -40,5 +63,18 @@ class Breweries extends React.Component {
       );
     };
   };
+
+  // class SearchBreweries extends React.Component {
+  //   constructor(props){
+  //     super(props);
+  //     this.state = {
+  //       value: ''
+  //     };
+  //   };
+    
+  //   render() {
+      
+  //   };
+  // };
 
   export default Breweries;

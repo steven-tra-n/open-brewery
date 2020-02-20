@@ -31,8 +31,7 @@ class Brewery extends React.Component {
           });
         }, (error) => {
           this.setState({ error });
-        }
-        );
+        });
     });
   };
 
