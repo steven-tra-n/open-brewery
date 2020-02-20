@@ -22,7 +22,7 @@ class Breweries extends React.Component {
             });
           }
         );
-    };//
+    };
   
     render() {
       if (this.state == null || this.state.breweries == null) return null;
