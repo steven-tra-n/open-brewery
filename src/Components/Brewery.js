@@ -37,7 +37,7 @@ class Brewery extends React.Component {
   };
 
   renderMarkers() {
-    const {name, street, city, state, phone, latitude, longitude} = this.state.brewery;
+    const {name, street, city, state, phone} = this.state.brewery;
 
     let marker = new this.maps.Marker({
       position: this.state.center,
@@ -69,7 +69,7 @@ class Brewery extends React.Component {
 
   render() {
     if (this.state == null || this.state.brewery == null) return null;
-    const {name, street, city, state, phone, latitude, longitude} = this.state.brewery;
+    const {name, street, city, state, phone} = this.state.brewery;
 
     return (
       <div>

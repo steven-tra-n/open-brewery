@@ -30,6 +30,7 @@ class Breweries extends React.Component {
       return (
         <div>
           <h1 id='title'>Breweries</h1>
+          <input placeholder='Search Breweries' />
           <table id='breweries'>
             <tbody>
               <RenderBreweries breweries={this.state.breweries} />
