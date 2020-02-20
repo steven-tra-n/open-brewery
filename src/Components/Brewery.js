@@ -42,7 +42,6 @@ class Brewery extends React.Component {
     let marker = new this.maps.Marker({
       position: this.state.center,
       map: this.map,
-      cursor: 'crosshair',
       title: name
     });
 
