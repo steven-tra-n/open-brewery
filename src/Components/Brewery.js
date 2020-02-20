@@ -37,16 +37,25 @@ class Brewery extends React.Component {
   };
 
   renderMarkers() {
-    const {name} = this.state.brewery;
+    const {name, street, city, state, phone, latitude, longitude} = this.state.brewery;
 
     let marker = new this.maps.Marker({
       position: this.state.center,
       map: this.map,
-      title: 'Hello World!'
+      cursor: 'crosshair',
+      title: name
     });
 
     marker.addListener('click', () =>{
-      this.infoWindow.setContent({name});
+      this.infoWindow.setContent(
+        `<div>
+          <p>${name}</p>
+          <p>${street}</p>
+          <p>${city}</p>
+          <p>${state}</p>
+          <p>${phone}</p>
+        </div>`
+      );
       this.infoWindow.open(this.map, marker);
     });
   };
