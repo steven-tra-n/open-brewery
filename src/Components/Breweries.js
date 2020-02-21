@@ -4,7 +4,7 @@ import RenderBreweries from './RenderBreweries';
 class Breweries extends React.Component {
   constructor() {
     super();
-    this.handleChangeFromBreweries = this.handleChangeFromBreweries.bind(this); //How can we remove this binding via arrow function?
+    this.handleChange = this.handleChange.bind(this); //How can we remove this binding via arrow function?
   };
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class Breweries extends React.Component {
       );
   };
 
-  handleChangeFromBreweries(e) {
+  handleChange(e) {
     if(e.key === 'Enter') {
       fetch(`https://api.openbrewerydb.org/breweries/search?query=${e.target.value}`)
       .then(res => res.json())
@@ -47,7 +47,7 @@ class Breweries extends React.Component {
     return (
       <div>
         <h1 id='title'>Breweries</h1>
-        <SearchBreweries handleChangeFromBreweries={this.handleChangeFromBreweries} />
+        <SearchBreweries handleChange={this.handleChange} />
         <table id='breweries'>
           <tbody>
             <RenderBreweries breweries={this.state.breweries} />
@@ -63,13 +63,13 @@ class SearchBreweries extends React.Component {
     super(props);
   };
 
-  handleChangeFromSearchBreweries(e) {
-    this.props.handleChangeFromBreweries(e);
+  passEventObjectToBreweries(e) {
+    this.props.handleChange(e);
   };
   
   render() {
     return (
-      <input placeholder='Search Breweries' onKeyDown={(e) => this.handleChangeFromSearchBreweries(e)} />
+      <input placeholder='Search Breweries' onKeyDown={(e) => this.passEventObjectToBreweries(e)} />
     );
   };
 };
