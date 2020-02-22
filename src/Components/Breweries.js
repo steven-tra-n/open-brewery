@@ -4,7 +4,6 @@ import RenderBreweries from './RenderBreweries';
 class Breweries extends React.Component {
   constructor() {
     super();
-    this.handleChange = this.handleChange.bind(this); //How can we remove this binding via arrow function?
   };
 
   componentDidMount() {
@@ -27,7 +26,7 @@ class Breweries extends React.Component {
       );
   };
 
-  handleChange(e) {
+  handleChange = (e) => {
     if(e.key === 'Enter') {
       fetch(`https://api.openbrewerydb.org/breweries/search?query=${e.target.value}`)
       .then(res => res.json())
