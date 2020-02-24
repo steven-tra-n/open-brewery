@@ -30,7 +30,7 @@ class Breweries extends React.Component {
   handleChange = (e) => {
     if(e.key === 'Enter') {
       if(e.target.value != ''){
-        fetch(`https://api.openbrewerydb.org/breweries/search?query=${e.target.value}`)
+        fetch(`https://api.openbrewerydb.org/breweries/search?query=${e.target.value}`) //TODO: This will search on all breweries instead of local ones
         .then(res => res.json())
         .then((result) => {
           this.setState({ 
