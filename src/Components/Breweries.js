@@ -1,5 +1,6 @@
 import React from 'react';
 import RenderBreweries from './RenderBreweries';
+import SearchBreweries from './SearchBreweries';
 
 class Breweries extends React.Component {
   constructor() {
@@ -57,22 +58,6 @@ class Breweries extends React.Component {
           </tbody>
         </table>
       </div>
-    );
-  };
-};
-
-class SearchBreweries extends React.Component {
-  constructor(props){
-    super(props);
-  };
-
-  passEventObjectToBreweries(e) {
-    this.props.handleChange(e);
-  };
-  
-  render() {
-    return (
-      <input placeholder='Search Breweries' onKeyDown={(e) => this.passEventObjectToBreweries(e)} />
     );
   };
 };
