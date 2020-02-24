@@ -21,7 +21,7 @@ class Breweries extends React.Component {
         }, (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error //TODO: What does this line do?
           });
         }
       );
