@@ -27,7 +27,7 @@ class Breweries extends React.Component {
       );
   };
 
-  handleChange = (e) => {
+  handleOnChange = (e) => {
     if(e.key === 'Enter') {
       if(e.target.value != ''){
         fetch(`https://api.openbrewerydb.org/breweries/search?query=${e.target.value}`) //TODO: This will search on all breweries instead of local ones
@@ -45,13 +45,25 @@ class Breweries extends React.Component {
     };
   };
 
+  searchAutoComplete = (breweryName) => {
+    fetch(`https://api.openbrewerydb.org/breweries/search?query=${breweryName}`)
+        .then(res => res.json())
+        .then((result) => {
+          this.setState({ 
+            breweries: result
+          });
+        }, (error) => {
+          this.setState({ error });
+        });
+  };
+
   render() {
     if (this.state == null || this.state.breweries == null) return null;
 
     return (
       <div>
         <h1 id='title'>Breweries</h1>
-        <SearchBreweries onChange={this.handleChange} />
+        <SearchBreweries onChange={this.handleOnChange} searchAutoComplete={this.searchAutoComplete} />
         <table id='breweries'>
           <tbody>
             <RenderBreweries breweries={this.state.breweries} />

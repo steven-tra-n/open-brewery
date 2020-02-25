@@ -9,7 +9,7 @@ class SearchBreweries extends React.Component {
       };
     };
   
-    passEventObjectToBreweries(e) {
+    handleOnKeyUp(e) {
       this.props.onChange(e);
 
       fetch(`https://api.openbrewerydb.org/breweries/autocomplete?query=${e.target.value}`)
@@ -27,21 +27,21 @@ class SearchBreweries extends React.Component {
     render() {
       return (
         <div>
-            <input placeholder='Search Breweries' onKeyUp={(e) => this.passEventObjectToBreweries(e)} />
-            <AutoComplete brewerySuggestions={this.state.suggestions} />
+            <input placeholder='Search Breweries' onKeyUp={(e) => this.handleOnKeyUp(e)} />
+            <AutoComplete brewerySuggestions={this.state.suggestions} searchAutoComplete={this.props.searchAutoComplete}  />
         </div>
       );
     };
   };
 
   const AutoComplete = (props) => {
-      const suggestions = props.brewerySuggestions.map(brewery => (
-        <li key={brewery.id}>
-            <a href='#'>{brewery.name}</a>
-        </li>
-      ));
+    const suggestions = props.brewerySuggestions.map(brewery => (
+      <li key={brewery.id}>
+          <a href='#' onClick={() => props.searchAutoComplete(brewery.name)} >{brewery.name}</a>
+      </li>
+    ));
 
-      return <ul>{suggestions}</ul>
+    return <ul>{suggestions}</ul>
   };
 
   export default SearchBreweries;
