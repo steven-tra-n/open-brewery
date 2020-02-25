@@ -29,7 +29,7 @@ class SearchBreweries extends React.Component {
       return (
         <div>
             <input placeholder='Search Breweries' onKeyUp={(e) => this.handleOnKeyUp(e)} />
-            <AutoComplete brewerySuggestions={this.state.suggestions} searchAutoComplete={this.props.searchAutoComplete}  />
+            <AutoComplete brewerySuggestions={this.state.suggestions} onSearch={this.props.onSearch}  />
         </div>
       );
     };

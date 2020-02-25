@@ -49,7 +49,7 @@ class Breweries extends React.Component {
     };
   };
 
-  searchAutoComplete = (breweryName) => {
+  handleOnSearch = (breweryName) => {
     this.searchAndUpdateState(breweryName);
   };
 
@@ -59,7 +59,7 @@ class Breweries extends React.Component {
     return (
       <div>
         <h1 id='title'>Breweries</h1>
-        <SearchBreweries onChange={this.handleOnChange} searchAutoComplete={this.searchAutoComplete} />
+        <SearchBreweries onChange={this.handleOnChange} onSearch={this.handleOnSearch} />
         <table id='breweries'>
           <tbody>
             <RenderBreweries breweries={this.state.breweries} />
