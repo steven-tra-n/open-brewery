@@ -27,25 +27,7 @@ class Breweries extends React.Component {
       );
   };
 
-  handleOnChange = (e) => {
-    if(e.key === 'Enter') {
-      if(e.target.value != ''){
-        fetch(`https://api.openbrewerydb.org/breweries/search?query=${e.target.value}`) //TODO: This will search on all breweries instead of local ones
-        .then(res => res.json())
-        .then((result) => {
-          this.setState({ 
-            breweries: result
-          });
-        }, (error) => {
-          this.setState({ error });
-        });
-      } else{
-        this.listBreweries();
-      };
-    };
-  };
-
-  searchAutoComplete = (breweryName) => {
+  searchAndUpdateState(breweryName){
     fetch(`https://api.openbrewerydb.org/breweries/search?query=${breweryName}`)
         .then(res => res.json())
         .then((result) => {
@@ -55,6 +37,20 @@ class Breweries extends React.Component {
         }, (error) => {
           this.setState({ error });
         });
+  };
+
+  handleOnChange = (e) => {
+    if(e.key === 'Enter') {
+      if(e.target.value != ''){
+        this.searchAndUpdateState(e.target.value);
+      } else{
+        this.listBreweries();
+      };
+    };
+  };
+
+  searchAutoComplete = (breweryName) => {
+    this.searchAndUpdateState(breweryName);
   };
 
   render() {
