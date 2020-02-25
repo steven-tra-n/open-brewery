@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderBreweries from './RenderBreweries';
-import SearchBreweries from './SearchBreweries';
+import BreweryList from './BreweryList';
+import SearchBar from './SearchBar';
 
 class Breweries extends React.Component {
   constructor() {
@@ -59,10 +59,10 @@ class Breweries extends React.Component {
     return (
       <div>
         <h1 id='title'>Breweries</h1>
-        <SearchBreweries onChange={this.handleOnChange} onSearch={this.handleOnSearch} />
+        <SearchBar onChange={this.handleOnChange} onSearch={this.handleOnSearch} />
         <table id='breweries'>
           <tbody>
-            <RenderBreweries breweries={this.state.breweries} />
+            <BreweryList breweries={this.state.breweries} />
           </tbody>
         </table>
       </div>
