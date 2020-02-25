@@ -27,7 +27,7 @@ class Breweries extends React.Component {
       );
   };
 
-  searchAndUpdateState(breweryName){
+  searchBreweries(breweryName){
     fetch(`https://api.openbrewerydb.org/breweries/search?query=${breweryName}`)
         .then(res => res.json())
         .then((result) => {
@@ -42,7 +42,7 @@ class Breweries extends React.Component {
   handleOnChange = (e) => {
     if(e.key === 'Enter') {
       if(e.target.value != ''){
-        this.searchAndUpdateState(e.target.value);
+        this.searchBreweries(e.target.value);
       } else{
         this.listBreweries();
       };
@@ -50,7 +50,7 @@ class Breweries extends React.Component {
   };
 
   handleOnSearch = (breweryName) => {
-    this.searchAndUpdateState(breweryName);
+    this.searchBreweries(breweryName);
   };
 
   render() {
