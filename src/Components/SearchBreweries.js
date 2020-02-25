@@ -10,7 +10,7 @@ class SearchBreweries extends React.Component {
     };
   
     passEventObjectToBreweries(e) {
-      this.props.handleChange(e);
+      this.props.onChange(e);
 
       fetch(`https://api.openbrewerydb.org/breweries/autocomplete?query=${e.target.value}`)
       .then(res => res.json())

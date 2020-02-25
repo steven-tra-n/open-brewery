@@ -51,7 +51,7 @@ class Breweries extends React.Component {
     return (
       <div>
         <h1 id='title'>Breweries</h1>
-        <SearchBreweries handleChange={this.handleChange} />
+        <SearchBreweries onChange={this.handleChange} />
         <table id='breweries'>
           <tbody>
             <RenderBreweries breweries={this.state.breweries} />
