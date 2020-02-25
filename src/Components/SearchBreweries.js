@@ -1,4 +1,5 @@
 import React from 'react';
+import AutoComplete from './AutoComplete';
 
 class SearchBreweries extends React.Component {
     constructor(props){
@@ -32,16 +33,6 @@ class SearchBreweries extends React.Component {
         </div>
       );
     };
-  };
-
-  const AutoComplete = (props) => {
-    const suggestions = props.brewerySuggestions.map(brewery => (
-      <li key={brewery.id}>
-          <a href='#' onClick={() => props.searchAutoComplete(brewery.name)} >{brewery.name}</a>
-      </li>
-    ));
-
-    return <ul>{suggestions}</ul>
   };
 
   export default SearchBreweries;
