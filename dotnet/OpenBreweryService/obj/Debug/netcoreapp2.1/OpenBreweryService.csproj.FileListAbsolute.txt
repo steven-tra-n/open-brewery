@@ -1,0 +1,14 @@
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.deps.json
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.runtimeconfig.json
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.runtimeconfig.dev.json
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.dll
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.pdb
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.csprojAssemblyReference.cache
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.csproj.CoreCompileInputs.cache
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorAssemblyInfo.cache
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorAssemblyInfo.cs
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.AssemblyInfoInputs.cache
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.AssemblyInfo.cs
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorTargetAssemblyInfo.cache
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.dll
+C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.pdb
