@@ -12,3 +12,17 @@ C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netc
 C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorTargetAssemblyInfo.cache
 C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.dll
 C:\Users\stran\source\repos\OpenBreweryService\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.pdb
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.deps.json
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.runtimeconfig.json
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.runtimeconfig.dev.json
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.dll
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\bin\Debug\netcoreapp2.1\OpenBreweryService.pdb
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.csprojAssemblyReference.cache
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorAssemblyInfo.cache
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorAssemblyInfo.cs
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.AssemblyInfoInputs.cache
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.AssemblyInfo.cs
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.RazorTargetAssemblyInfo.cache
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.dll
+C:\Users\steve\source\repos\open-brewery\dotnet\OpenBreweryService\obj\Debug\netcoreapp2.1\OpenBreweryService.pdb

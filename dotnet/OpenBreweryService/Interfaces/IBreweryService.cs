@@ -8,6 +8,6 @@ namespace OpenBreweryService.Interfaces
 {
     public interface IBreweryService
     {
-        Task<Dictionary<int, Brewery>> ListBreweries();
+        Task<IEnumerable<Brewery>> ListBreweries();
     }
 }

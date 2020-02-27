@@ -12532,23 +12532,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\stran\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\steve\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stran\\source\\repos\\OpenBreweryService\\OpenBreweryService\\OpenBreweryService.csproj",
+      "projectUniqueName": "C:\\Users\\steve\\source\\repos\\open-brewery\\dotnet\\OpenBreweryService\\OpenBreweryService.csproj",
       "projectName": "OpenBreweryService",
-      "projectPath": "C:\\Users\\stran\\source\\repos\\OpenBreweryService\\OpenBreweryService\\OpenBreweryService.csproj",
-      "packagesPath": "C:\\Users\\stran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stran\\source\\repos\\OpenBreweryService\\OpenBreweryService\\obj\\",
+      "projectPath": "C:\\Users\\steve\\source\\repos\\open-brewery\\dotnet\\OpenBreweryService\\OpenBreweryService.csproj",
+      "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\steve\\source\\repos\\open-brewery\\dotnet\\OpenBreweryService\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\stran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12584,6 +12580,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12594,10 +12591,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

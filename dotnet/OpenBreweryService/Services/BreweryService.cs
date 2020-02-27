@@ -14,17 +14,17 @@ namespace OpenBreweryService.Services
     {
         private readonly BreweryAPI _api = new BreweryAPI();
 
-        public async Task<Dictionary<int, Brewery>> ListBreweries()
+        public async Task<IEnumerable<Brewery>> ListBreweries()
         {
             HttpClient client = _api.Initialize();
-            Dictionary<int, Brewery> breweries = new Dictionary<int, Brewery>();
+            IEnumerable<Brewery> breweries = Enumerable.Empty<Brewery>();
 
             HttpResponseMessage response = await client.GetAsync("breweries?by_state=pennsylvania");
 
             if (response.IsSuccessStatusCode)
             {
                 var results = response.Content.ReadAsStringAsync().Result;
-                breweries = JsonConvert.DeserializeObject<Dictionary<int, Brewery>>(results);
+                breweries = JsonConvert.DeserializeObject<IEnumerable<Brewery>>(results);
             }
 
             return breweries;
