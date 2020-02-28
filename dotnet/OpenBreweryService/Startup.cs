@@ -20,6 +20,8 @@ namespace OpenBreweryService
             services.AddMvc()
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
+            services.AddCors();
+
             services.AddSingleton<IBreweryService, BreweryService>();
         }
 
@@ -36,6 +38,11 @@ namespace OpenBreweryService
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
             app.UseMvc();
         }
     }

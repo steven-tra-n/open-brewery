@@ -9,5 +9,6 @@ namespace OpenBreweryService.Interfaces
     public interface IBreweryService
     {
         Task<IEnumerable<Brewery>> ListBreweries();
+        Task<Brewery> GetBreweryById(string breweryId);
     }
 }

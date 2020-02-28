@@ -6,9 +6,9 @@ using System.Net.Http;
 
 namespace OpenBreweryService.Helper
 {
-    public class BreweryAPI
+    public static class BreweryAPI
     {
-        public HttpClient Initialize()
+        public static HttpClient GetClient()
         {
             HttpClient client = new HttpClient();
 

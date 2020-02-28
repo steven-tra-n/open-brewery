@@ -18,7 +18,7 @@ class Brewery extends React.Component {
     this.setState({
       id: this.props.match.params.id
     }, () => {
-      fetch(`https://api.openbrewerydb.org/breweries/${this.props.match.params.id}`)
+      fetch(`https://localhost:44328/v1/GetBreweryById?breweryId=${this.props.match.params.id}`)
         .then(res => res.json())
         .then((result) => {
           this.setState({ 

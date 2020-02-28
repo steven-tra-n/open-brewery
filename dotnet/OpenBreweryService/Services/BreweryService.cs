@@ -12,11 +12,10 @@ namespace OpenBreweryService.Services
 {
     public class BreweryService : IBreweryService
     {
-        private readonly BreweryAPI _api = new BreweryAPI();
+        private readonly HttpClient client = BreweryAPI.GetClient();
 
         public async Task<IEnumerable<Brewery>> ListBreweries()
         {
-            HttpClient client = _api.Initialize();
             IEnumerable<Brewery> breweries = Enumerable.Empty<Brewery>();
 
             HttpResponseMessage response = await client.GetAsync("breweries?by_state=pennsylvania");
@@ -28,6 +27,21 @@ namespace OpenBreweryService.Services
             }
 
             return breweries;
+        }
+
+        public async Task<Brewery> GetBreweryById(string breweryId)
+        {
+            Brewery brewery = new Brewery();
+
+            HttpResponseMessage response = await client.GetAsync($"https://api.openbrewerydb.org/breweries/{breweryId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var results = response.Content.ReadAsStringAsync().Result;
+                brewery = JsonConvert.DeserializeObject<Brewery>(results);
+            }
+
+            return brewery;
         }
     }
 }
