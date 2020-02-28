@@ -1,7 +1,6 @@
 ﻿using OpenBreweryService.Interfaces;
 using OpenBreweryService.Models;
 using OpenBreweryService.Helper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -34,6 +33,21 @@ namespace OpenBreweryService.Services
             IEnumerable<Brewery> breweries = Enumerable.Empty<Brewery>();
 
             HttpResponseMessage response = await client.GetAsync($"https://api.openbrewerydb.org/breweries/search?query={breweryName}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var results = response.Content.ReadAsStringAsync().Result;
+                breweries = JsonConvert.DeserializeObject<IEnumerable<Brewery>>(results);
+            }
+
+            return breweries;
+        }
+
+        public async Task<IEnumerable<Brewery>> SearchBreweriesByNameAutoComplete(string breweryName)
+        {
+            IEnumerable<Brewery> breweries = Enumerable.Empty<Brewery>();
+
+            HttpResponseMessage response = await client.GetAsync($"https://api.openbrewerydb.org/breweries/autocomplete?query={breweryName}");
 
             if (response.IsSuccessStatusCode)
             {

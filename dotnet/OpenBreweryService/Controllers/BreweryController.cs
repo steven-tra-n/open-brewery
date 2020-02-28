@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OpenBreweryService.Interfaces;
-using OpenBreweryService.Models;
 
 namespace OpenBreweryService.Controllers
 {
@@ -34,6 +29,15 @@ namespace OpenBreweryService.Controllers
         public async Task<IActionResult> SearchBreweriesByName(string breweryName)
         {
             var breweries = await _service.SearchBreweriesByName(breweryName);
+
+            return Ok(breweries);
+        }
+
+        [HttpGet]
+        [Route("SearchBreweriesByNameAutoComplete")]
+        public async Task<IActionResult> SearchBreweriesByNameAutoComplete(string breweryName)
+        {
+            var breweries = await _service.SearchBreweriesByNameAutoComplete(breweryName);
 
             return Ok(breweries);
         }
