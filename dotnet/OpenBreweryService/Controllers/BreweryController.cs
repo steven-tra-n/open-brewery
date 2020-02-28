@@ -30,6 +30,15 @@ namespace OpenBreweryService.Controllers
         }
 
         [HttpGet]
+        [Route("SearchBreweriesByName")]
+        public async Task<IActionResult> SearchBreweriesByName(string breweryName)
+        {
+            var breweries = await _service.SearchBreweriesByName(breweryName);
+
+            return Ok(breweries);
+        }
+
+        [HttpGet]
         [Route("GetBreweryById")]
         public async Task<IActionResult> GetBreweryById(string breweryId)
         {

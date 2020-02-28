@@ -28,7 +28,7 @@ class Breweries extends React.Component {
   };
 
   searchBreweries(breweryName){
-    fetch(`https://api.openbrewerydb.org/breweries/search?query=${breweryName}`)
+    fetch(`https://localhost:44328/v1/SearchBreweriesByName?breweryName=${breweryName}`)
         .then(res => res.json())
         .then((result) => {
           this.setState({ 

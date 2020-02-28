@@ -29,6 +29,21 @@ namespace OpenBreweryService.Services
             return breweries;
         }
 
+        public async Task<IEnumerable<Brewery>> SearchBreweriesByName(string breweryName)
+        {
+            IEnumerable<Brewery> breweries = Enumerable.Empty<Brewery>();
+
+            HttpResponseMessage response = await client.GetAsync($"https://api.openbrewerydb.org/breweries/search?query={breweryName}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var results = response.Content.ReadAsStringAsync().Result;
+                breweries = JsonConvert.DeserializeObject<IEnumerable<Brewery>>(results);
+            }
+
+            return breweries;
+        }
+
         public async Task<Brewery> GetBreweryById(string breweryId)
         {
             Brewery brewery = new Brewery();
