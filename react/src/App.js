@@ -14,6 +14,7 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/home" component={Home} />
         <Route path="/breweries/:id" component={Brewery} />
         <Route path="/breweries" component={Breweries} />
         <Route path="/" component={Home} />

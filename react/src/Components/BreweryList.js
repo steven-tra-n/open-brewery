@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
       return (
         <tr key={id}>
-          <Link to={`/breweries/${id}`}><td>{name}</td></Link>
+          <Link to={{ pathname: `/breweries/${id}`, state: props.breweries }}><td>{name}</td></Link>
           <td>{brewery_type}</td>
           <td>{street}</td>
           <td>{city}</td>

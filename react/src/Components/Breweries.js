@@ -12,7 +12,8 @@ class Breweries extends React.Component {
   };
 
   listBreweries() { //TODO: How does this work without binding this in the constructor?
-    fetch("https://localhost:44328/v1/ListBreweries")
+    fetch("https://api.openbrewerydb.org/breweries?by_state=pennsylvania")
+    // fetch("https://localhost:44328/v1/ListBreweries")
       .then(res => res.json())
       .then((result) => {
           this.setState({
@@ -28,7 +29,8 @@ class Breweries extends React.Component {
   };
 
   searchBreweries(breweryName){
-    fetch(`https://localhost:44328/v1/SearchBreweriesByName?breweryName=${breweryName}`)
+    fetch(`https://api.openbrewerydb.org/breweries/search?query=${breweryName}`)
+    // fetch(`https://localhost:44328/v1/SearchBreweriesByName?breweryName=${breweryName}`)
         .then(res => res.json())
         .then((result) => {
           this.setState({ 
